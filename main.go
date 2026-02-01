@@ -68,6 +68,7 @@ func (h *Host) ping() error {
 	if err != nil {
 		return err
 	}
+	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
 		return errors.New("response code was not '200'")
